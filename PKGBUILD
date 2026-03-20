@@ -3,7 +3,7 @@
 pkgname=sonic-interface-libraries
 pkgver=6.6.3
 _dirver=$(echo $pkgver | cut -d. -f1-3)
-pkgrel=1
+pkgrel=2
 pkgdesc='Sonic-DE library and runtime components'
 arch=(x86_64)
 url='https://github.com/Sonic-DE/sonic-interface-libraries'
@@ -34,6 +34,7 @@ depends=(gcc-libs
 makedepends=(extra-cmake-modules
              kdoctools)
 conflicts=(libplasma plasma-framework)
+provides=(libplasma)
 replaces=(libplasma plasma-framework)
 groups=(sonicde)
 source=("$pkgname-$pkgver.tar.gz::${url}/archive/refs/tags/${_dirver}.tar.gz")

@@ -1,10 +1,10 @@
 ---
-version: 6.6.3-1
+version: 6.6.3-2
 pkgbase:
   name: sonic-interface-libraries
   pkgdesc: Sonic-DE library and runtime components
   pkgver: 6.6.3
-  pkgrel: 1
+  pkgrel: 2
   url: https://github.com/Sonic-DE/sonic-interface-libraries
   arch:
     - x86_64
@@ -39,6 +39,8 @@ pkgbase:
     - qt6-base
     - qt6-declarative
     - sonic-frameworks-keybind
+  provides:
+    - libplasma
   conflicts:
     - libplasma
     - plasma-framework
