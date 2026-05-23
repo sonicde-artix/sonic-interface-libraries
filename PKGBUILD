@@ -1,43 +1,46 @@
-# Maintainer: artist for Sonic-DE
+# Maintainer: artist for Artix Linux
 
 pkgname=sonic-interface-libraries
-pkgver=6.6.3
+pkgver=6.6.5
 _dirver=$(echo $pkgver | cut -d. -f1-3)
-pkgrel=2
+pkgrel=4
+_commit="e43e11f184067b0c285c68a5baed179c2eacbeb8"
 pkgdesc='Sonic-DE library and runtime components'
 arch=(x86_64)
 url='https://github.com/Sonic-DE/sonic-interface-libraries'
 license=(LGPL-2.0-or-later)
-depends=(gcc-libs
-         glibc
-         plasma-activities
+depends=(glibc
+         sonic-activities
          kcolorscheme
          kconfig
-         kcoreaddons
+         sonic-frameworks-core-addons
          kguiaddons
          ki18n
          kiconthemes
-         kio
-         kirigami
+         sonic-frameworks-quick-ui
+         sonic-frameworks-io
          knotifications
          kpackage
          ksvg
          kwidgetsaddons
-         kwindowsystem
+         libgcc
          libglvnd
          libx11
          libxcb
          qt6-5compat
          qt6-base
          qt6-declarative
-         sonic-frameworks-keybind)
+         sonic-frameworks-keybind
+         sonic-frameworks-windowsystem)
 makedepends=(extra-cmake-modules
+  plasma-wayland-protocols
              kdoctools)
 conflicts=(libplasma plasma-framework)
 provides=(libplasma)
 replaces=(libplasma plasma-framework)
 groups=(sonicde)
-source=("$pkgname-$pkgver.tar.gz::${url}/archive/refs/tags/${_dirver}.tar.gz")
+makedepends+=(git)
+source=("$pkgname-$pkgver::git+$url.git#commit=$_commit")
 
 build() {
   cmake -B build  -S $pkgname-$pkgver \
@@ -49,5 +52,5 @@ package() {
   DESTDIR="$pkgdir" cmake --install build
 }
 
-sha256sums=('233bb69125618dfb3e5fc187e7d89b6f77c3fe6cfb231a6ccae338c50774bd6c')
+sha256sums=('caa8267d5043409a2dc0eb6c421f6ad1b7b5c6315d6f5e8bb0e0d43bc0046dd2')
 
