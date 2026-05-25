@@ -4,7 +4,7 @@
 pkgname=sonic-interface-libraries
 pkgver=6.6.5
 _dirver=$(echo $pkgver | cut -d. -f1-3)
-pkgrel=4
+pkgrel=5
 pkgdesc='Sonic-DE library and runtime components'
 arch=(x86_64)
 url='https://github.com/Sonic-DE/sonic-interface-libraries'
@@ -40,7 +40,7 @@ provides=(libplasma)
 replaces=(libplasma plasma-framework)
 groups=(sonicde)
 source=("$pkgname-$pkgver.tar.gz::${url}/archive/refs/tags/${pkgver}.tar.gz")
-sha256sums=('caa8267d5043409a2dc0eb6c421f6ad1b7b5c6315d6f5e8bb0e0d43bc0046dd2')
+sha256sums=('069d348790d92441b43cc8e0cbd3b23187b7f90219602d8b30fae262af520692')
 
 build() {
   cmake -B build  -S $pkgname-$pkgver \
